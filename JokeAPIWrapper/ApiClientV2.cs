@@ -1,10 +1,9 @@
 ﻿using JokeAPIWrapper.Models;
-using System.Net.Http.Json;
 using System.Text.Json;
 
 namespace JokeAPIWrapper;
 
-public sealed class ApiClientV2
+public sealed class ApiClientV2 : IApiClientV2
 {
     private static readonly Exception _apiError = new("Api error. Please see if https://v2.jokeapi.dev is still available and working");
     private static readonly Exception _myCodeError = new("My code is broke! Please help by going to https://github.com/DanBuxton/JokeAPI-CS-Wrapper");
