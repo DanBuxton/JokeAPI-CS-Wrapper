@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33103.201
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JokeAPIWrapper", "JokeAPIWrapper\JokeAPIWrapper.csproj", "{B51C6EDA-02ED-4942-A71B-415215FF6B4C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JokeAPIWrapper.Tests", "JokeAPIWrapper.Tests\JokeAPIWrapper.Tests.csproj", "{5D29D93D-E669-45CB-AF2B-22F6028B9D11}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B51C6EDA-02ED-4942-A71B-415215FF6B4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B51C6EDA-02ED-4942-A71B-415215FF6B4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B51C6EDA-02ED-4942-A71B-415215FF6B4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B51C6EDA-02ED-4942-A71B-415215FF6B4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D29D93D-E669-45CB-AF2B-22F6028B9D11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D29D93D-E669-45CB-AF2B-22F6028B9D11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D29D93D-E669-45CB-AF2B-22F6028B9D11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D29D93D-E669-45CB-AF2B-22F6028B9D11}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9C325D51-2469-41B3-8D14-B492BA8F2D74}
+	EndGlobalSection
+EndGlobal
