@@ -1,10 +1,9 @@
 ﻿using JokeAPIWrapper.Models;
 
-namespace JokeAPIWrapper
+namespace JokeAPIWrapper;
+
+public interface IApiClientV2
 {
-    public interface IApiClientV2
-    {
-        JokeModel GetJoke(JokeCategory? jokeCategory = null);
-        Task<JokeModel> GetJokeAsync(JokeCategory? jokeCategory = null);
-    }
+    JokeModel GetJoke(JokeCategory? jokeCategory = null);
+    Task<JokeModel> GetJokeAsync(JokeCategory? jokeCategory = null);
 }

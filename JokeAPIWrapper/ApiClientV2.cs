@@ -14,13 +14,13 @@ public sealed class ApiClientV2 : IApiClientV2
         _client = client;
     }
 
-    private async Task<JokeModel> GetApiResponse(JokeCategory? jokeCategory = null)
+    private async Task<JokeModel> GetApiResponse(IRequest request)
     {
         // Create a valid uri
-        var uri = "https://v2.jokeapi.dev/joke/" + (jokeCategory?.ToString() ?? "Any");
+        const string baseUri = "https://v2.jokeapi.dev/joke/";
 
         // Send a get request
-        var response = await _client.GetAsync(uri);
+        var response = await _client.GetAsync(baseUri + request.GetUri());
 
         // Check the response for errors
         if (response is null || !response.IsSuccessStatusCode)
@@ -29,7 +29,7 @@ public sealed class ApiClientV2 : IApiClientV2
         }
 
         // Turn the response into a JSON object
-        var json = JsonSerializer.Deserialize<JsonElement>(await response.Content.ReadAsStreamAsync());
+        var json = await JsonSerializer.DeserializeAsync<JsonElement>(await response.Content.ReadAsStreamAsync());
 
         // Handle API error response
         if (json.GetProperty("error").GetBoolean())
@@ -67,7 +67,11 @@ public sealed class ApiClientV2 : IApiClientV2
 
     public async Task<JokeModel> GetJokeAsync(JokeCategory? jokeCategory = null)
     {
-        return await GetApiResponse(jokeCategory);
+        RequestBuilder b = new();
+
+        b.WithCategory(jokeCategory);
+
+        return await GetApiResponse(b.Build());
     }
     public JokeModel GetJoke(JokeCategory? jokeCategory = null)
     {
