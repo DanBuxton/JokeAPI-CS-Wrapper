@@ -1,0 +1,4 @@
+﻿[*.cs]
+
+# CA1853: Unnecessary call to 'Dictionary.ContainsKey(key)'
+dotnet_diagnostic.CA1853.severity = none

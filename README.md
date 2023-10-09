@@ -17,7 +17,7 @@ dotnet add package JokeAPI
 ```
 
 ```xml
-<PackageReference Include="JokeAPI" Version="1.1.0" />
+<PackageReference Include="JokeAPI" Version="2.0.0" />
 ```
 
 or using the NuGet Package Manager in Visual Studio searching for ```JokeAPI```

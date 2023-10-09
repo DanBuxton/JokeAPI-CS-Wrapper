@@ -1,5 +1,4 @@
 ﻿using JokeAPIWrapper.Models;
-using Microsoft.Extensions.DependencyInjection;
 using System.Text.Json;
 
 namespace JokeAPIWrapper;
@@ -13,10 +12,6 @@ public sealed class ApiClientV2 : IApiClientV2
     public ApiClientV2(HttpClient client)
     {
         _client = client;
-    }
-    public ApiClientV2(IServiceProvider services)
-    {
-        _client = services.GetRequiredService<HttpClient>();
     }
     public ApiClientV2()
     {

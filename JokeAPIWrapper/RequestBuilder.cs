@@ -33,10 +33,7 @@ internal sealed class RequestBuilder : IRequestBuilder
 
     public IRequestBuilder WithBlacklistFlags(params string[] flags)
     {
-        if (_request.Params.ContainsKey("blacklist"))
-        {
-            _request.Params.Remove("blacklist");
-        }
+        _request.Params.Remove("blacklist");
 
         _request.Params.Add("blacklist", string.Join(',', flags));
 
