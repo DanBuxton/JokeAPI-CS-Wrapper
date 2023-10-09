@@ -21,6 +21,19 @@ public class ApiClientTests
         var joke = await _client.GetJokeAsync(targetCategory);
 
         Assert.Equal(joke!.GetCategory(), targetCategory);
+        Assert.False(joke.Error);
+    }
+
+    [Theory]
+    [InlineData(JokeCategory.Spooky, JokeCategory.Programming, JokeCategory.Misc)]
+    [InlineData(JokeCategory.Programming, JokeCategory.Pun, JokeCategory.Dark)]
+    public async Task GetJokeMultiCategoryTest(params JokeCategory[] targetCategories)
+    {
+        var joke = await _client.GetJokeAsync(targetCategories);
+        var cat = joke!.GetCategory();
+
+        Assert.Contains(cat, targetCategories);
+        Assert.False(joke.Error);
     }
 
     [Fact]

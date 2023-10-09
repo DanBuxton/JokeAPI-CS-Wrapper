@@ -2,8 +2,6 @@
 
 A C# wrapper for the free JokeAPI by Sv443
 
-Currently, only getting a joke by a single category is currently implemented. 
-
 ---
 
 The API documentation is available here: 

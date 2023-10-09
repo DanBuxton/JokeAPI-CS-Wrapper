@@ -1,4 +1,5 @@
 ﻿using JokeAPIWrapper.Models;
+using Microsoft.Extensions.DependencyInjection;
 using System.Text.Json;
 
 namespace JokeAPIWrapper;
@@ -12,6 +13,14 @@ public sealed class ApiClientV2 : IApiClientV2
     public ApiClientV2(HttpClient client)
     {
         _client = client;
+    }
+    public ApiClientV2(IServiceProvider services)
+    {
+        _client = services.GetRequiredService<HttpClient>();
+    }
+    public ApiClientV2()
+    {
+        _client = new HttpClient();
     }
 
     private async Task<JokeModel> GetApiResponse(IRequest request)
@@ -70,6 +79,14 @@ public sealed class ApiClientV2 : IApiClientV2
         RequestBuilder b = new();
 
         b.WithCategory(jokeCategory);
+
+        return await GetApiResponse(b.Build());
+    }
+    public async Task<JokeModel> GetJokeAsync(params JokeCategory[] jokeCategories)
+    {
+        RequestBuilder b = new();
+
+        b.WithCategories(jokeCategories);
 
         return await GetApiResponse(b.Build());
     }
