@@ -1,6 +1,6 @@
 ﻿namespace JokeAPIWrapper;
 
-internal interface IRequest
+public interface IRequest
 {
     string GetUri();
 }

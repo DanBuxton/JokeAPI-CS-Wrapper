@@ -17,23 +17,11 @@ public sealed class Request : IRequest
             uri += "?" + string.Join('&', parameters);
         }
 
-        if (SafeMode)
+        if (!SafeMode)
         {
-            if (Params.Count > 0)
-            {
-                uri += "&safe-mode";
-            }
-            else
-            {
-                uri += "?safe-mode";
-            }
+            return uri;
         }
 
-        return uri;
-    }
-
-    public override string ToString()
-    {
-        return GetUri();
+        return uri + (Params.Count > 0 ? "&" : "?") + "safe-mode";
     }
 }

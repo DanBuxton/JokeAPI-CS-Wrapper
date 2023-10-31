@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace JokeAPIWrapper;
 
-internal sealed class RequestBuilder : IRequestBuilder
+public sealed class RequestBuilder : IRequestBuilder
 {
     private readonly Request _request = new();
 

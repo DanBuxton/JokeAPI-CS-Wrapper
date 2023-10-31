@@ -9,15 +9,14 @@ The API documentation is available here:
 
 ## Install
 
-You can install this using [NuGet](https://www.nuget.org/packages/JokeAPI/) 
-in the following ways:
+You can install this using [NuGet](https://www.nuget.org/packages/JokeAPI/) in the following ways:
 
 ```dotnet
 dotnet add package JokeAPI
 ```
 
 ```xml
-<PackageReference Include="JokeAPI" Version="2.0.0" />
+<PackageReference Include="JokeAPI" Version="2.0.1" />
 ```
 
-or using the NuGet Package Manager in Visual Studio searching for ```JokeAPI```
+or using the NuGet Package Manager in Visual Studio searching for ```joke api```

@@ -2,7 +2,7 @@
 
 namespace JokeAPIWrapper;
 
-internal interface IRequestBuilder
+public interface IRequestBuilder
 {
     IRequest Build();
     IRequestBuilder WithBlacklistFlags(params string[] flags);

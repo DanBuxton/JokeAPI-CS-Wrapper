@@ -5,8 +5,8 @@ namespace JokeAPIWrapper;
 
 public sealed class ApiClientV2 : IApiClientV2
 {
-    private static readonly Exception _apiError = new("Api error. Please see if https://v2.jokeapi.dev is still available and working");
-    private static readonly Exception _myCodeError = new("My code is broke! Please help by going to https://github.com/DanBuxton/JokeAPI-CS-Wrapper");
+    private static readonly Exception _apiError = new("Api error. Please see if https://v2.jokeapi.dev is still available and working.");
+    private static readonly Exception _myCodeError = new("My code is broke! Please help by going to https://github.com/DanBuxton/JokeAPI-CS-Wrapper.");
     private readonly HttpClient _client;
 
     public ApiClientV2(HttpClient client)
@@ -16,6 +16,19 @@ public sealed class ApiClientV2 : IApiClientV2
     public ApiClientV2()
     {
         _client = new HttpClient();
+    }
+
+    public Task<JokeModel> GetJokeAsync(IRequestBuilder request)
+    {
+        return GetApiResponse(request.Build());
+    }
+    public JokeModel GetJoke(IRequestBuilder request)
+    {
+        var req = GetJokeAsync(request);
+
+        req.Wait();
+
+        return req.Result;
     }
 
     private async Task<JokeModel> GetApiResponse(IRequest request)
@@ -57,11 +70,11 @@ public sealed class ApiClientV2 : IApiClientV2
             return json.Deserialize<TwoPartJokeModel>()!;
         }
     }
-    private static void HandleError(JsonElement json)
+    private static void HandleError(JsonElement? json)
     {
-        var error = json.Deserialize<ErrorModel>()!;
+        var error = json?.Deserialize<ErrorModel>()!;
 
-        if (error.InternalError)
+        if (error is not null && error.InternalError)
         {
             throw _apiError;
         }
@@ -69,25 +82,39 @@ public sealed class ApiClientV2 : IApiClientV2
         throw _myCodeError;
     }
 
-    public async Task<JokeModel> GetJokeAsync(JokeCategory? jokeCategory = null)
+    [Obsolete("Use IRequestBuilder instead")]
+    public Task<JokeModel> GetJokeAsync(JokeCategory? jokeCategory = null)
     {
         RequestBuilder b = new();
 
         b.WithCategory(jokeCategory);
+        b.WithSafeMode();
 
-        return await GetApiResponse(b.Build());
+        return GetApiResponse(b.Build());
     }
-    public async Task<JokeModel> GetJokeAsync(params JokeCategory[] jokeCategories)
+    [Obsolete("Use IRequestBuilder instead")]
+    public Task<JokeModel> GetJokeAsync(params JokeCategory[] jokeCategories)
     {
         RequestBuilder b = new();
 
         b.WithCategories(jokeCategories);
+        b.WithSafeMode();
 
-        return await GetApiResponse(b.Build());
+        return GetApiResponse(b.Build());
     }
+    [Obsolete("Use IRequestBuilder instead")]
     public JokeModel GetJoke(JokeCategory? jokeCategory = null)
     {
         var req = GetJokeAsync(jokeCategory);
+
+        req.Wait();
+
+        return req.Result;
+    }
+    [Obsolete("Use IRequestBuilder instead")]
+    public JokeModel GetJoke(params JokeCategory[] jokeCategories)
+    {
+        var req = GetJokeAsync(jokeCategories);
 
         req.Wait();
 

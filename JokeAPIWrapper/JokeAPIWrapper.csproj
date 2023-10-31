@@ -8,19 +8,18 @@
 		<RepositoryUrl>https://github.com/DanBuxton/JokeAPI-CS-Wrapper.git</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<Title>JokeAPI Wrapper</Title>
-		<Authors>https://v2.jokeapi.dev</Authors>
+		<Authors>DanBuxton</Authors>
 		<PackageProjectUrl>https://v2.jokeapi.dev</PackageProjectUrl>
 		<PackageId>JokeAPI</PackageId>
 		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
 		<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
-		<VersionPrefix>2.0.0</VersionPrefix>
+		<VersionPrefix>2.0.1</VersionPrefix>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<Description>A C# wrapper for the free JokeAPI by Sv443</Description>
 		<IncludeSymbols>False</IncludeSymbols>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<None Include="..\.editorconfig" Link=".editorconfig" />
 		<None Include="..\LICENSE.txt">
 			<Pack>True</Pack>
 			<PackagePath>\</PackagePath>
