@@ -88,7 +88,11 @@ public sealed class ApiClientV2 : IApiClientV2
         RequestBuilder b = new();
 
         b.WithCategory(jokeCategory);
-        b.WithSafeMode();
+
+        if (jokeCategory is not JokeCategory.Dark)
+        {
+            b.WithSafeMode();
+        }
 
         return GetApiResponse(b.Build());
     }
@@ -98,7 +102,11 @@ public sealed class ApiClientV2 : IApiClientV2
         RequestBuilder b = new();
 
         b.WithCategories(jokeCategories);
-        b.WithSafeMode();
+        
+        if (!jokeCategories.Contains(JokeCategory.Dark))
+        {
+            b.WithSafeMode();
+        }
 
         return GetApiResponse(b.Build());
     }
