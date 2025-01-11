@@ -24,13 +24,6 @@ public sealed class RequestBuilder : IRequestBuilder
         return this;
     }
 
-    [Obsolete("Use JokeLanguage enum instead")]
-    public IRequestBuilder WithLanguage(string lang = "en")
-    {
-        _request.Params.Add("lang", lang);
-
-        return this;
-    }
     public IRequestBuilder WithLanguage(JokeLanguage lang = JokeLanguage.EN)
     {
         _request.Params.Add("lang", lang.ToString().ToLower());
