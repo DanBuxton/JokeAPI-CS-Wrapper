@@ -1,6 +1,7 @@
-# JokeAPI Wrapper
+[![Tests](https://github.com/DanBuxton/JokeAPI-CS-Wrapper/actions/workflows/dotnet.yml/badge.svg)](https://github.com/DanBuxton/JokeAPI-CS-Wrapper/actions/workflows/dotnet.yml)
+[![CodeQL](https://github.com/DanBuxton/JokeAPI-CS-Wrapper/actions/workflows/codeql.yml/badge.svg)](https://github.com/DanBuxton/JokeAPI-CS-Wrapper/actions/workflows/codeql.yml)
 
-[![.NET](https://github.com/DanBuxton/JokeAPI-CS-Wrapper/actions/workflows/dotnet.yml/badge.svg)](https://github.com/DanBuxton/JokeAPI-CS-Wrapper/actions/workflows/dotnet.yml)
+# JokeAPI Wrapper
 
 A C# wrapper for the free JokeAPI by Sv443
 
