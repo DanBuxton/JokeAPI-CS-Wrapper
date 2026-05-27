@@ -1,5 +1,7 @@
 # JokeAPI Wrapper
 
+[![.NET](https://github.com/DanBuxton/JokeAPI-CS-Wrapper/actions/workflows/dotnet.yml/badge.svg)](https://github.com/DanBuxton/JokeAPI-CS-Wrapper/actions/workflows/dotnet.yml)
+
 A C# wrapper for the free JokeAPI by Sv443
 
 ---
