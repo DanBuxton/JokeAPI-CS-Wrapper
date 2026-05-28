@@ -12,12 +12,12 @@
 name: "CodeQL Advanced"
 
 on:
-  push:
-    branches: [ "master" ]
+  # push:
+  #   branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
   schedule:
-    - cron: '38 16 * * 3'
+    - cron: '38 16 4 * *'
   workflow_dispatch:
 
 jobs:
@@ -36,16 +36,12 @@ jobs:
       # required to fetch internal or private CodeQL packs
       packages: read
 
-      # only required for workflows in private repositories
-      actions: read
-      contents: read
-
     strategy:
       fail-fast: false
       matrix:
         include:
-        - language: actions
-          build-mode: none
+        # - language: actions
+        #   build-mode: none
         - language: csharp
           build-mode: none
         # CodeQL supports the following values keywords for 'language': 'actions', 'c-cpp', 'csharp', 'go', 'java-kotlin', 'javascript-typescript', 'python', 'ruby', 'rust', 'swift'
